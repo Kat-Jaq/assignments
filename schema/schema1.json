@@ -1,0 +1,45 @@
+{
+    "$schema": "http://localhost:3001",
+    "$id": "http://localhost3001",
+    "title": "users",
+    "description": "this is the beginning",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "description": "ID as assigned by mongo",
+            "type": "string"
+        },
+        "fName":{
+            "description": "first name of user",
+            "type": "string"
+        },
+        "lName": {
+            "description": "last name of user",
+            "type": "string"
+        },
+        "email": {
+            "description": "array of emails for user",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "password": {
+            "type": "string",
+            "pattern": "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
+        },
+        "age": {
+            "description": "age of user",
+            "type": "number",
+            "minimum": 18,
+            "maximum": 130
+        },
+        "phone": {
+            "type": "string",
+            "pattern": "^\\d-\\d-\\d$"
+        }
+    },
+    "required": ["fName", "lName", "email", "password"]
+}
